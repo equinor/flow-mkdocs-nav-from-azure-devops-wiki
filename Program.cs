@@ -19,13 +19,13 @@ class Program
         var wikiDirectory = new Option<DirectoryInfo?> (
             name: "--source",
             description:  "Source Wiki directory path",
-            getDefaultValue: () => new DirectoryInfo("/Users/tivik/GitHub/Flow-Business-Applications.wiki")
+            getDefaultValue: () => new DirectoryInfo("source/wiki")
         );
         wikiDirectory.AddAlias("-s");
         var destinationDirectory = new Option<DirectoryInfo?> (
             name: "--destination",
             description:  "Destination directory path",
-            getDefaultValue: () => new DirectoryInfo("./output")
+            getDefaultValue: () => new DirectoryInfo("source/output")
         );
         destinationDirectory.AddAlias("-d");
         var rootCommand = new RootCommand("Generate mkdocs navigation from azure wiki")
