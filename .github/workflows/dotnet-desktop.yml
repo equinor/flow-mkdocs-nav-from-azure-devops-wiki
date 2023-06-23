@@ -38,4 +38,4 @@ jobs:
       with:
         # Artifact name
         name: CreateMKDocsNavigation #.zip will be added automatically
-        path: bin/release/net7.0/*.*
+        path: bin/Release/net7.0/*.*
