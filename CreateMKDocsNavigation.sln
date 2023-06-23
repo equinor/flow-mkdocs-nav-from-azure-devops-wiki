@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.001.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateMKDocsNavigation", "CreateMKDocsNavigation.csproj", "{7548B384-45FE-4E5F-945C-5510CEC63B0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7548B384-45FE-4E5F-945C-5510CEC63B0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7548B384-45FE-4E5F-945C-5510CEC63B0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7548B384-45FE-4E5F-945C-5510CEC63B0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7548B384-45FE-4E5F-945C-5510CEC63B0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A9B9883-6EE9-45E1-A0D3-4B1301CAF4C4}
+	EndGlobalSection
+EndGlobal
