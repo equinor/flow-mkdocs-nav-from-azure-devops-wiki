@@ -115,7 +115,7 @@ class Program
             if (File.Exists(pathToFile + "/" + line.Trim() + "/.order"))
             {
                 File.Copy(pathToFile + "/" + line.Trim() + ".md", pathToFile + "/" + line.Trim() +"/index.md" , true);
-                result.Add(new() { Key = pathToFile + "/"  + line.Trim(), Value = "index.md", Folder = false});
+                result.Add(new() { Key = pathToFile + "/"  + line.Trim(), Value = "index.md\"", Folder = false});
                 var subResult = (pathToFile + "/" + line.Trim());
                 try
                 {
