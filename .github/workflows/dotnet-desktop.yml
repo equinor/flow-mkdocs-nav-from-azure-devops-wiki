@@ -56,7 +56,7 @@ jobs:
         name: CreateMKDocsNavigation-osx-x64 #.zip will be added automatically
         path: bin/Release/net7.0/osx-x86/Publish/*.*
       
-    - name: Upload a Build Artifact linux
+    - name: Upload a Build Artifact windows
       uses: actions/upload-artifact@v2.2.2
       with:
         # Artifact name
