@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,19 +13,19 @@ class Program
         var mkdockTemplate = new Option<FileInfo?> (
             name: "--template",
             description:  "MKDocs template file and path",
-            getDefaultValue: () => new FileInfo("mkdock.yaml")
+            getDefaultValue: () => new FileInfo("./mkdocs.yaml")
         );
         mkdockTemplate.AddAlias("-t");
         var wikiDirectory = new Option<DirectoryInfo?> (
             name: "--source",
             description:  "Source Wiki directory path",
-            getDefaultValue: () => new DirectoryInfo("source/wiki")
+            getDefaultValue: () => new DirectoryInfo("/Users/tivik/GitHub/Flow-Business-Applications.wiki")
         );
         wikiDirectory.AddAlias("-s");
         var destinationDirectory = new Option<DirectoryInfo?> (
             name: "--destination",
             description:  "Destination directory path",
-            getDefaultValue: () => new DirectoryInfo("source/output")
+            getDefaultValue: () => new DirectoryInfo("./output")
         );
         destinationDirectory.AddAlias("-d");
         var rootCommand = new RootCommand("Generate mkdocs navigation from azure wiki")
@@ -39,15 +39,15 @@ class Program
             if(destinationDirectory is not null && wikiDirectory is not null && mkdockTemplate is not null)
             {
                 Directory.CreateDirectory(destinationDirectory.FullName);
-                ModifyYaml(ProcessFile(wikiDirectory.FullName), wikiDirectory.FullName, destinationDirectory.FullName, mkdockTemplate.Name);
+                ModifyYaml(ProcessFile(wikiDirectory.FullName), wikiDirectory.FullName, destinationDirectory.FullName, mkdockTemplate);
             }
         },mkdockTemplate, wikiDirectory, destinationDirectory);
         await rootCommand.InvokeAsync(args);
     }
 
-    static void ModifyYaml(List<(string Key, string Value, bool Folder)> listToPrint, string directoryStartPath, string outputPathName, string templateFile)
+    static void ModifyYaml(List<(string Key, string Value, bool Folder)> listToPrint, string directoryStartPath, string outputPathName, FileInfo templateFile)
     {
-        var yamlContentToModify = File.ReadLines(templateFile);
+        var yamlContentToModify = File.ReadLines(templateFile.FullName);
         var yamlContentWithoutNav = new List<string>();
         for (int i = 0; i < yamlContentToModify.Count(); i++)
         {
@@ -72,7 +72,7 @@ class Program
             }
         }
 
-        using (var writer = new StreamWriter(outputPathName+'/'+templateFile, false))
+        using (var writer = new StreamWriter(outputPathName+'/'+templateFile.Name, false))
         {
             foreach (var item in yamlContentWithoutNav)
             {
