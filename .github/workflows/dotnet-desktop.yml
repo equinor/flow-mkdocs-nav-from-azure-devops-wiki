@@ -33,9 +33,32 @@ jobs:
     - name: Build
       run: dotnet build -c release --no-restore
       
-    - name: Upload a Build Artifact
+    - name: Publish linux
+      run: dotnet publish -p:PublishSingleFile=true -r linux-x64 -c Release --self-contained true -p:PublishTrimmed=true
+      
+    - name: Publish osx
+      run: dotnet publish -p:PublishSingleFile=true -r osx-x64 -c Release --self-contained true -p:PublishTrimmed=true
+      
+    - name: Publish windows
+      run: dotnet publish -p:PublishSingleFile=true -r win-x64 -c Release --self-contained true -p:PublishTrimmed=true
+      
+    - name: Upload a Build Artifact linux
       uses: actions/upload-artifact@v2.2.2
       with:
         # Artifact name
-        name: CreateMKDocsNavigation #.zip will be added automatically
-        path: bin/Release/net7.0/*.*
+        name: CreateMKDocsNavigation-linux-x64 #.zip will be added automatically
+        path: bin/Release/net7.0/linux-x64/Publish/*.*
+      
+    - name: Upload a Build Artifact osx
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        # Artifact name
+        name: CreateMKDocsNavigation-osx-x64 #.zip will be added automatically
+        path: bin/Release/net7.0/osx-x86/Publish/*.*
+      
+    - name: Upload a Build Artifact linux
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        # Artifact name
+        name: CreateMKDocsNavigation-win-x64 #.zip will be added automatically
+        path: bin/Release/net7.0/win-x86/Publish/*.*
