@@ -82,7 +82,7 @@ class Program
             writer.WriteLine("  - 'User documents':");
             foreach (var item in listToPrint)
             {
-                var preFix = "  - ";
+                var preFix = "    - ";
                 var split = "";
                 if (item.Key.Replace(directoryStartPath, "").Any(c => c == '/'))
                 {
