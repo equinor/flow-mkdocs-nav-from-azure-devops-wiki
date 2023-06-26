@@ -79,10 +79,10 @@ class Program
                 writer.WriteLine(item);
             }
             writer.WriteLine("nav:");
-            writer.WriteLine("  Wiki:");
+            //writer.WriteLine("  Wiki:");
             foreach (var item in listToPrint)
             {
-                var preFix = "    - ";
+                var preFix = "  - ";
                 var split = "";
                 if (item.Key.Replace(directoryStartPath, "").Any(c => c == '/'))
                 {
